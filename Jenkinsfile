@@ -6,7 +6,7 @@
                 TESTING_ENVIRONMENT  = 'Sit753 test Evironment'
                 PRODUCTION_ENVIRONMENT =  "Prashants production Environment"
                 logfiletest = "${env.WORKSPACE}\\testing.log"
-                logfilesecurity = "${env.WORKSPACE}\\ecurityscan.log"
+                logfilesecurity = "${env.WORKSPACE}\\securityscan.log"
                 email = "prashanthvpatill@gmail.com"
         }
         stages {
@@ -15,12 +15,16 @@
                     echo "Fetch The Source code from ${env.Directory_Path}"
                 }
             }
-             stage('Test') {
+             stage('Unit and Integration tests') {
             steps {
                 echo "Running Integration and Unit Tests"
                 script {
-                    bat "echo Starting unittests using Testing > ${env.logfiletest}"
-                    bat " echo Unit test is comlpleted and adding results tolog file >>${env.logfiletest}"
+                    bat "echo Initiating Unit test  using TestNG > ${env.logfiletest}"
+                    bat " echo Unit test is comlpleted and adding results to log file >>${env.logfiletest}"
+                    bat " echo Initiating Integration tests using Selenium   >>${env.logfiletest}"
+                    bat " echo  Integration tests completed saving result to log file    >>${env.logfiletest}"
+                    
+
                 }
             }
         }
