@@ -4,7 +4,7 @@
         {
                 logfiletest = "${env.WORKSPACE}\\testing.log"
                 logfilesecurity = "${env.WORKSPACE}\\securityscan.log"
-                email = "prashanthvpatill@gmail.com"
+                email = "ytpremiumsucks666@gmail.com"
         }
         stages {
             stage('Build') {
