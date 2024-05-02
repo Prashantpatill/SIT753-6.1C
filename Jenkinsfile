@@ -48,6 +48,16 @@
                     bat "echo Security Scan Completed and adding results to security log file >> ${env.logfilesecurity}"
                 }
             }
+            post {
+            success {
+            emailext(
+            subject: "Results of Unit and Integration tests",
+            body: "Unit and Integration tests were conducted. Please find the attached file to know more about them.",
+           //attachmentsPattern: "${logfiletest}",
+            to: "ytpremiumsucks666@gmail.com"
+        )
+    }
+}
             }
             stage('Integration tests on Staging ') {
                 steps {
