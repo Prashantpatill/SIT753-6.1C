@@ -28,7 +28,7 @@
             emailext(
             subject: "Results of Unit and Integration tests",
             body: "Unit and Integration tests were conducted. Please find the attached file to know more about them.",
-           attachmentsPattern: "${env.logfiletest}",
+           attachmentsPattern: "**/testing.log",
             to: "ytpremiumsucks666@gmail.com"
         )
     }
