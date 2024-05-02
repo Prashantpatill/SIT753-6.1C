@@ -28,7 +28,7 @@
             subject: "Results of Unit and Integration tests",
             body: "Unit and Integration tests were conducted. Please find the attached file to know more about them.",
            //attachmentsPattern: "${logfiletest}",
-            to: "${env.email}"
+            to: "prashanthvpatill@gmail.com"
         )
     }
 }
