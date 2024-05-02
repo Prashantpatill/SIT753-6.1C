@@ -2,9 +2,6 @@
         agent any
         environment
         {
-            Directory_Path = 'C:/ProgramData/Jenkins/.jenkins/workspace/SIT753'
-                TESTING_ENVIRONMENT  = 'Sit753 test Evironment'
-                PRODUCTION_ENVIRONMENT =  "Prashants production Environment"
                 logfiletest = "${env.WORKSPACE}\\testing.log"
                 logfilesecurity = "${env.WORKSPACE}\\securityscan.log"
                 email = "prashanthvpatill@gmail.com"
@@ -12,7 +9,7 @@
         stages {
             stage('Build') {
                 steps {
-                    echo "Fetch The Source code from ${env.Directory_Path}"
+                    echo "Fetch The Source code "
                 }
             }
              stage('Unit and Integration tests') {
@@ -23,6 +20,16 @@
                     bat " echo Unit test is comlpleted and adding results to log file >>${env.logfiletest}"
                     bat " echo Initiating Integration tests using Selenium   >>${env.logfiletest}"
                     bat " echo  Integration tests completed saving result to log file    >>${env.logfiletest}"
+                }
+            }
+            post{
+                always{
+                emailText{
+                    subject:"Resukts of Unit and Integration tests",
+                    body:"Unit and Integration tests were conducted and please find the attached file to know more about them",
+                    attachmentsPatters:"${logfiletest}",
+                    to:"${env.email}"
+                }    
                 }
             }
         }
