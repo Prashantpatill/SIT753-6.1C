@@ -3,8 +3,11 @@
         environment
         {
             Directory_Path = 'C:/ProgramData/Jenkins/.jenkins/workspace/SIT753'
-            TESTING_ENVIRONMENT  = 'Sit753 test Evironment'
-            PRODUCTION_ENVIRONMENT =  'Prashants production Environment'
+                TESTING_ENVIRONMENT  = 'Sit753 test Evironment'
+                PRODUCTION_ENVIRONMENT =  "Prashants production Environment"
+                logfiletest = "${env.WORKSPACE}/testing.log"
+                logfilesecurity = "${env.WORKSPACE}/securityscan.log"
+                email = "prashanthvpatill@gmail.com"
         }
         stages {
             stage('Build') {
@@ -12,10 +15,14 @@
                     echo "Fetch The Source code from ${env.Directory_Path}"
                 }
             }
-            stage('Test') {
+             stage('Test') {
                 steps {
-                    echo 'Unit Tests'
-                    echo 'Integration Tests'
+                    echo "Running Integration and Unit Tests"
+                    script {
+                    sh """
+                        echo 'Starting unittests using TestNG '>"{env.logfiletest}"
+                    """
+                    }
                 }
             }
             stage('Code Quality Stage') {
