@@ -51,10 +51,11 @@
             post {
             success {
             emailext(
+                 to: "ytpremiumsucks666@gmail.com",
             subject: "Results of Unit and Integration tests",
             body: "Unit and Integration tests were conducted. Please find the attached file to know more about them.",
            //attachmentsPattern: "${logfiletest}",
-            to: "ytpremiumsucks666@gmail.com"
+           
         )
     }
 }
