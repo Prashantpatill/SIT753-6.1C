@@ -22,16 +22,17 @@
                     bat " echo  Integration tests completed saving result to log file    >>${env.logfiletest}"
                 }
             }
-            post{
-                always{
-                emailext{
-                    subject:  "Resukts of Unit and Integration tests",
-                    body: "Unit and Integration tests were conducted and please find the attached file to know more about them",
-                    attachmentsPatters: "${logfiletest}",
-                    to: "${env.email}"
-                }    
-                }
-            }
+            post {
+            always {
+            emailext(
+            subject: "Results of Unit and Integration tests",
+            body: "Unit and Integration tests were conducted. Please find the attached file to know more about them.",
+            attachments: "${logfiletest}",
+            to: "${env.email}"
+        )
+    }
+}
+
         }
             stage('Code Analysis') {
                 steps {
