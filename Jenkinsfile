@@ -40,6 +40,7 @@
                     bat "echo Security Scan Completed and adding results to security log file >> ${env.logfilesecurity}"
                 }
             }
+            }
             stage('Integration tests on Staging ') {
                 steps {
                     echo "Initiating Integration tests on staging to ensure application is funtioning as expected to in production like environment"
