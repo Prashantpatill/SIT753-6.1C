@@ -24,6 +24,7 @@
             }
             post {
             always {
+                echo "Attaching file: ${env.logfiletest}"
             emailext(
             subject: "Results of Unit and Integration tests",
             body: "Unit and Integration tests were conducted. Please find the attached file to know more about them.",
