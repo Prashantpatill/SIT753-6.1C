@@ -55,7 +55,7 @@
                  to: "ytpremiumsucks666@gmail.com",
             subject: "Results Of Security Scan ",
             body: "Unit and Integration tests were conducted. Please find the attached file to know more about them.",
-           attachmentsPattern: ""**/securityscan.log"",
+           attachmentsPattern: "**/securityscan.log"
            
         )
     }
