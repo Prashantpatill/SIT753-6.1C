@@ -19,7 +19,8 @@
             steps {
                 echo "Running Integration and Unit Tests"
                 script {
-                    bat "echo Starting unittests using TestNG > ${env.logfiletest}"
+                    bat "echo Starting unittests using Testing > ${env.logfiletest}"
+                    bat "Unit test is comlpleted and adding results tolog file >>${env.logfiletest}"
                 }
             }
         }
