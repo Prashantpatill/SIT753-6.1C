@@ -20,7 +20,7 @@
                 echo "Running Integration and Unit Tests"
                 script {
                     bat "echo Starting unittests using Testing > ${env.logfiletest}"
-                    bat "Unit test is comlpleted and adding results tolog file >>${env.logfiletest}"
+                    bat " echo Unit test is comlpleted and adding results tolog file >>${env.logfiletest}"
                 }
             }
         }
