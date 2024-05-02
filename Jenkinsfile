@@ -30,13 +30,11 @@
                 steps {
                     echo 'Initiating Code Analysis using CodeClimate '
                     
-                }
             }
+        }
             stage('Security Scan') {
                 steps {
                     echo "Running Security Scans using Nikto"
-                   
-                }
                 script{
                     bat "echo Initiating Security Scan using Nikto > ${env.logfilesecurity}"
                     bat "echo Security Scan Completed and adding results to security log file >> ${env.logfilesecurity}"
