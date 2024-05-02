@@ -19,7 +19,7 @@
                 steps {
                     echo "Running Integration and Unit Tests"
                     script {
-                    sh """
+                    bat """
                         echo 'Starting unittests using TestNG '>"{env.logfiletest}"
                     """
                     }
