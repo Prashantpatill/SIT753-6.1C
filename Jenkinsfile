@@ -16,14 +16,13 @@
                 }
             }
              stage('Test') {
-                steps {
-                    echo "Running Integration and Unit Tests"
-                    script {
-                     bat "echo Starting unittests using TestNG > ${env.logfiletest}"
-                }
-                    }
+            steps {
+                echo "Running Integration and Unit Tests"
+                script {
+                    bat "echo Starting unittests using TestNG > ${env.logfiletest}"
                 }
             }
+        }
             stage('Code Quality Stage') {
                 steps {
                     echo 'Check the Quality Of the Code'
