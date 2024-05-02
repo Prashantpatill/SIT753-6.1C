@@ -23,31 +23,33 @@
                     bat " echo Unit test is comlpleted and adding results to log file >>${env.logfiletest}"
                     bat " echo Initiating Integration tests using Selenium   >>${env.logfiletest}"
                     bat " echo  Integration tests completed saving result to log file    >>${env.logfiletest}"
-                    
-
                 }
             }
         }
-            stage('Code Quality Stage') {
+            stage('Code Analysis') {
                 steps {
-                    echo 'Check the Quality Of the Code'
+                    echo 'Initiating Code Analysis using CodeClimate '
                     
                 }
             }
-            stage('Deploy') {
+            stage('Security Scan') {
                 steps {
-                    echo "Deploy the Application to the Testing Envitonment ${env.TESTING_ENVIRONMENT}"
+                    echo "Running Security Scans using Nikto"
                    
                 }
+                script{
+                    bat "echo Initiating Security Scan using Nikto > ${env.logfilesecurity}"
+                    bat "echo Security Scan Completed and adding results to security log file >> ${env.logfilesecurity}"
+                }
             }
-            stage('Approve') {
+            stage('Integration tests on Staging ') {
                 steps {
-                    sleep 10
+                    echo "Initiating Integration tests on staging to ensure application is funtioning as expected to in production like environment"
                 }
             }
             stage('Deploy To Production ') {
                 steps {
-                    echo "Deploy to production Environment ${env.PRODUCTION_ENVIRONMENT}"
+                    echo "Deploying on Production Server in Amazon AWS EC2 instance"
                 }
             }
         }
