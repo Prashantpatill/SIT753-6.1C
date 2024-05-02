@@ -5,8 +5,8 @@
             Directory_Path = 'C:/ProgramData/Jenkins/.jenkins/workspace/SIT753'
                 TESTING_ENVIRONMENT  = 'Sit753 test Evironment'
                 PRODUCTION_ENVIRONMENT =  "Prashants production Environment"
-                logfiletest = "${env.WORKSPACE}/testing.log"
-                logfilesecurity = "${env.WORKSPACE}/securityscan.log"
+                logfiletest = "${env.WORKSPACE}\\testing.log"
+                logfilesecurity = "${env.WORKSPACE}\\ecurityscan.log"
                 email = "prashanthvpatill@gmail.com"
         }
         stages {
