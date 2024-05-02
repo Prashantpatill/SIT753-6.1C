@@ -1,37 +1,33 @@
-pipeline {
+ pipeline {
         agent any
         environment
         {
-          logfiletest = ${env.WORKSPACE}/testing.log"
-          logfilesecurity = "${env.WORKSPACE}/securityscan.log"
-          email = "prashanthvpatill@gmail.com"
+            Directory_Path = 'C:/ProgramData/Jenkins/.jenkins/workspace/SIT753'
+            TESTING_ENVIRONMENT  = 'Sit753 test Evironment'
+            PRODUCTION_ENVIRONMENT =  'Prashants production Environment'
         }
         stages {
             stage('Build') {
                 steps {
-                    echo "Building Code from Maven Automation Tool "
+                    echo "Fetch The Source code from ${env.Directory_Path}"
                 }
             }
             stage('Test') {
                 steps {
-                    echo "Running Integration and Unit Tests"
-                    script {
-                    sh """
-                        echo "Starting unittests using TestNG ">logfiletest
-                    """
-                    }
+                    echo 'Unit Tests'
+                    echo 'Integration Tests'
                 }
             }
             stage('Code Quality Stage') {
                 steps {
                     echo 'Check the Quality Of the Code'
-
+                    
                 }
             }
             stage('Deploy') {
                 steps {
                     echo "Deploy the Application to the Testing Envitonment ${env.TESTING_ENVIRONMENT}"
-
+                   
                 }
             }
             stage('Approve') {
