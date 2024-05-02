@@ -25,10 +25,10 @@
             post{
                 always{
                 emailext{
-                    subject:"Resukts of Unit and Integration tests",
-                    body:"Unit and Integration tests were conducted and please find the attached file to know more about them",
-                    attachmentsPatters:"${logfiletest}",
-                    to:"${env.email}"
+                    subject:  "Resukts of Unit and Integration tests",
+                    body: "Unit and Integration tests were conducted and please find the attached file to know more about them",
+                    attachmentsPatters: "${logfiletest}",
+                    to: "${env.email}"
                 }    
                 }
             }
